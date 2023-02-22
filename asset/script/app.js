@@ -1,14 +1,40 @@
+class product {
+  title = "DEFAULT";
+  imageUrl;
+  description;
+  price;
 
-const productList = {products: [{title: 'A pillow', imageUrl: 'https://images.app.goo.gl/nhBSQwv9Ju2sZ17P7', price: 19.99, description:'A soft pillow'},
-{title: 'A carpet', imageUrl: 'https://images.app.goo.gl/LeLHJTcrEnYPpP2E7', price: 89.99, description:'A carpet'}],
-render(){
-  const renderHook = document.getElementById('app');
-  const prodList = document.createElement('ul');
-  prodList.className = 'product-list';
-  for(const prod of this.products){
-    const prodEl = document.createElement('li');
-    prodEl.className = 'product-item';
-    prodEl.innerHTML = `
+  constructor(title, image, desc, price) {
+    this.title = title;
+    this.imageUrl = image;
+    this.description = desc;
+    this.price = price;
+  }
+}
+
+const productList = {
+  products: [
+    new product(
+      "A pillow",
+      "C:Users\11143DesktopWeChat Image_20230219213249.jpg",
+      "A soft pillow",
+      19.99
+    ),
+    new product(
+      "A carpet",
+      "C:Users\11143DesktopWeChat Image_20230219213249.jpg",
+      "A carpet",
+      89.99
+    ),
+  ],
+  render() {
+    const renderHook = document.getElementById("app");
+    const prodList = document.createElement("ul");
+    prodList.className = "product-list";
+    for (const prod of this.products) {
+      const prodEl = document.createElement("li");
+      prodEl.className = "product-item";
+      prodEl.innerHTML = `
       <div>
          <img src=${prod.imageUrl} alt = ${prod.title}>
          <div class = 'product-item__content'>
@@ -19,7 +45,10 @@ render(){
          <button>Add to cart</button>
       </div>
     `;
-    prodList.append(prodEl);
-  }
-  renderHook.append();
-}}
+      prodList.append(prodEl);
+    }
+    renderHook.append(prodList);
+  },
+};
+
+productList.render();
