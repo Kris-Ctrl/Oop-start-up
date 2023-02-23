@@ -11,6 +11,17 @@ class product {
   }
 }
 
+class shoppingCart{
+  items = [];
+
+  render(){
+    const cartEl = document.createElement('section');
+    cartEl.innerHTML = `<h2>total: \$${0}</h2>
+    <button>Order Now!</button>`;
+    cartEl.className = 'cart';
+    return cartEl;
+  }
+}
 
 class productItem{
   constructor(product){
@@ -72,6 +83,10 @@ class productList{
   };
 }
 
+class shop{
+  
+}
 
 const productList = new productList();
 productList.render();
+
